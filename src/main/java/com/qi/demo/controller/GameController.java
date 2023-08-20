@@ -20,15 +20,21 @@ public class GameController {
     }
 
     @PostMapping("/addGame")
-    public AjaxResponse testPost(@RequestBody Game game) {
+    public AjaxResponse addGame(@RequestBody Game game) {
         GameManager.addGame(game);
         return AjaxResponse.success();
     }
 
 
     @PostMapping("/addAllGame")
-    public AjaxResponse testPost(@RequestBody List<Game> gameList) {
+    public AjaxResponse addAllGame(@RequestBody List<Game> gameList) {
         GameManager.addAllGame(gameList);
+        return AjaxResponse.success();
+    }
+
+    @DeleteMapping("/removeAllGames/{name}")
+    public AjaxResponse removeAllGames(@PathVariable("name") String name) {
+        GameManager.removeGame(name);
         return AjaxResponse.success();
     }
 
