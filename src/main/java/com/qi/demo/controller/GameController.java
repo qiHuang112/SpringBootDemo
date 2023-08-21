@@ -1,22 +1,25 @@
 package com.qi.demo.controller;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qi.demo.AjaxResponse;
 import com.qi.demo.bean.Game;
 import com.qi.demo.bean.GameManager;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class GameController {
 
-    @GetMapping("/getAll/{name}")
-    public AjaxResponse getAll(@PathVariable("name") String name) {
-        var games = GameManager.getGames(name);
+    @GetMapping("/getAll/{type}")
+    public AjaxResponse getAll(@PathVariable("type") String type) {
+        var games = GameManager.getGames(type);
         return AjaxResponse.success(games);
+    }
+
+    @GetMapping("/getHashCode/{type}")
+    public AjaxResponse getHashCode(@PathVariable("type") String type) {
+        return AjaxResponse.success(GameManager.getHashCode(type));
     }
 
     @PostMapping("/addGame")

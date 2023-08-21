@@ -21,5 +21,5 @@ public class Player {
     private double cost;
     private double profit;
     private double score;
-    private int size;
+    private int aa;
 }
