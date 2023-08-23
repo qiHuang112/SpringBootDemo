@@ -14,9 +14,9 @@ import java.util.Map;
 public class GameManager {
     private final Map<String, List<Game>> games = new HashMap<>();
 
-    public static int getHashCode(String type) {
+    public static int getSize(String type) {
         List<Game> gameList = getGames(type);
-        return gameList == null ? 0 : gameList.hashCode();
+        return gameList == null ? 0 : gameList.size();
     }
 
     @Bean

@@ -17,9 +17,9 @@ public class GameController {
         return AjaxResponse.success(games);
     }
 
-    @GetMapping("/getHashCode/{type}")
+    @GetMapping("/getSize/{type}")
     public AjaxResponse getHashCode(@PathVariable("type") String type) {
-        return AjaxResponse.success(GameManager.getHashCode(type));
+        return AjaxResponse.success(List.of(GameManager.getSize(type)));
     }
 
     @PostMapping("/addGame")
